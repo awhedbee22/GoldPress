@@ -80,6 +80,8 @@
 				<?php get_template_part( 'partials/nav', 'single_level' ); ?>
 
 		    </div>
+			<img src="<?php header_image(); ?>" alt="Agency Banner Image" class="header-banner" />
+
 		    <div class="header-decoration"></div>
 		</header>
 		<!-- /header -->

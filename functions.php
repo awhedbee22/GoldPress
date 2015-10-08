@@ -9,7 +9,8 @@
 	External Modules/Files
 \*------------------------------------*/
 
-// Load any external files you have here
+// Site Options
+require_once(get_template_directory().'/site-options.php');
 
 /*------------------------------------*\
 	Theme Support
@@ -39,20 +40,20 @@ if (function_exists('add_theme_support'))
     ));*/
 
     // Add Support for Custom Header - Uncomment below if you're going to use
-    /*add_theme_support('custom-header', array(
-	'default-image'			=> get_template_directory_uri() . '/img/headers/default.jpg',
+    add_theme_support('custom-header', array(
+	'default-image'			=> get_template_directory_uri() . '/images/template2014/oceanside/header-background.jpg',
 	'header-text'			=> false,
 	'default-text-color'		=> '000',
-	'width'				=> 1000,
-	'height'			=> 198,
+	'width'				=> 1300,
+	'height'			=> 500,
 	'random-default'		=> false,
 	'wp-head-callback'		=> $wphead_cb,
 	'admin-head-callback'		=> $adminhead_cb,
 	'admin-preview-callback'	=> $adminpreview_cb
-    ));*/
+    ));
 
     // Enables post and comment RSS feed links to head
-    add_theme_support('automatic-feed-links');
+    // add_theme_support('automatic-feed-links');
 
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
@@ -80,9 +81,13 @@ function html5blank_nav()
 		'after'           => '',
 		'link_before'     => '',
 		'link_after'      => '',
-		'items_wrap'      => '<ul id="top-level-nav" class="nav_list">%3$s</ul>',
+		'items_wrap'      => '<ul id="nav_list" class="top-level-nav"><li class="home-link nav-item"><a href="/" class="first-level-link"><span id="nav_home_container" class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a>
+        </li>%3$s<li class="home-link nav-item">
+<a href="http://webtools.ca.gov/about-web-tools/contact-us/" class="first-level-link"><span id="nav_home_container" class="ca-gov-icon-contact-us" aria-hidden="true"></span><span class="sr-only">Contact Us</span></a>
+        </li></ul>',
 		'depth'           => 0,
 		'walker'          => ''
+        // Create walker class to add li.nav-item
 		)
 	);
 }
@@ -161,13 +166,13 @@ function html5blank_styles()
 
     // wp_register_style('color-orangecounty', get_template_directory_uri() . '/css/colorscheme-orangecounty.css', array(), '1.0', 'all');
     // wp_enqueue_style('color-orangecounty');
-    //
+
     // wp_register_style('color-pasorobles', get_template_directory_uri() . '/css/colorscheme-pasorobles.css', array(), '1.0', 'all');
     // wp_enqueue_style('color-pasorobles');
-    //
+
     // wp_register_style('color-santabarbara', get_template_directory_uri() . '/css/colorscheme-santabarbara.css', array(), '1.0', 'all');
     // wp_enqueue_style('color-santabarbara');
-    //
+
     // wp_register_style('color-sierra', get_template_directory_uri() . '/css/colorscheme-sierra.css', array(), '1.0', 'all');
     // wp_enqueue_style('color-sierra');
 
@@ -196,6 +201,11 @@ function my_wp_nav_menu_args($args = '')
 function my_css_attributes_filter($var)
 {
     return is_array($var) ? array() : '';
+}
+
+function add_classes_on_li($classes, $item, $args) {
+  $classes[] = 'test_class';
+  return $classes;
 }
 
 // Remove invalid rel attribute values in the categorylist
@@ -328,7 +338,7 @@ function html5_blank_view_article($more)
 // Remove Admin bar
 function remove_admin_bar()
 {
-    return true;
+    return false;
 }
 
 // Remove 'text/css' from our enqueued stylesheet
@@ -363,7 +373,7 @@ function enable_threaded_comments()
 }
 
 // Custom Comments Callback
-function html5blankcomments($comment, $args, $depth)
+/*function html5blankcomments($comment, $args, $depth)
 {
 	$GLOBALS['comment'] = $comment;
 	extract($args, EXTR_SKIP);
@@ -376,7 +386,7 @@ function html5blankcomments($comment, $args, $depth)
 		$add_below = 'div-comment';
 	}
 ?>
-    <!-- heads up: starting < for the html tag (li or div) in the next line: -->
+
     <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
 	<?php if ( 'div' != $args['style'] ) : ?>
 	<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
@@ -404,7 +414,7 @@ function html5blankcomments($comment, $args, $depth)
 	<?php if ( 'div' != $args['style'] ) : ?>
 	</div>
 	<?php endif; ?>
-<?php }
+<?php }*/
 
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
@@ -440,9 +450,9 @@ add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (S
 add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
-// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
-// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
-// add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
+add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
+add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
+add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
 add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)

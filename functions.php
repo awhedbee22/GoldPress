@@ -9,8 +9,6 @@
 	External Modules/Files
 \*------------------------------------*/
 
-// Site Options
-require_once(get_template_directory().'/site-options.php');
 
 /*------------------------------------*\
 	Theme Support
@@ -58,6 +56,91 @@ if (function_exists('add_theme_support'))
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
 }
+
+/*------------------------------------*\
+	Theme Options
+\*------------------------------------*/
+// Options Page Functions
+function themeoptions_admin_menu()
+{
+    // here's where we add our theme options page link to the dashboard sidebar
+    add_theme_page("Theme Options", "Theme Options", 'edit_themes', basename(__FILE__), 'themeoptions_page');
+}
+
+function themeoptions_page()
+{
+    // here's the main function that will generate our options page
+
+    if ( $_POST['update_themeoptions'] == 'true' ) { themeoptions_update(); }
+
+    //if ( get_option() == "checked"
+
+    ?>
+    <div class="wrap">
+        <div id="icon-themes" class="icon32"><br /></div>
+        <h2>Theme Options</h2>
+
+        <form method="POST" action="">
+            <input type="hidden" name="update_themeoptions" value="true" />
+
+            <h4>Color Scheme</h4>
+            <select name ="color">
+                <?php $color = get_option('mytheme_color'); ?>
+                <option value="oceanside" <?php if ($color=='oceanside') { echo 'selected'; } ?> >Oceanside Stylesheet</option>
+                <option value="orangecounty" <?php if ($color=='orangecounty') { echo 'selected'; } ?>>Orange County Stylesheet</option>
+                <option value="pasorobles" <?php if ($color=='pasorobles') { echo 'selected'; } ?>>Paso Robles Stylesheet</option>
+                <option value="santabarbara" <?php if ($color=='santabarbara') { echo 'selected'; } ?> >Santa Barbara Stylesheet</option>
+                <option value="sierra" <?php if ($color=='sierra') { echo 'selected'; } ?> >Sierra Stylesheet</option>
+            </select>
+
+            <h4>Menu Type</h4>
+            <select name ="menu">
+                <?php $menuType = get_option('mytheme_menu_type'); ?>
+                <option value="mega" <?php if ($menuType=='mega') { echo 'selected'; } ?> >Mega Menu</option>
+                <option value="dropdown" <?php if ($menuType=='dropdown') { echo 'selected'; } ?>>Drop-Down Menu</option>
+                <option value="single" <?php if ($menuType=='single') { echo 'selected'; } ?>>Single Menu</option>
+            </select>
+
+            <h4>Social Media</h4>
+            <p><input type="text" name="facebook_info" id="facebook_info" size="32" value="<?php echo get_option('mytheme_facebook_info'); ?>" /> Facebook ID<br><a href="http://findmyfbid.com/" title="Find My Facebook ID">How to find my Facebook ID?</a></p>
+
+            <p><input type="text" name="twitter_username" id="twitter_username" size="32" value="<?php echo get_option('mytheme_twitter_username'); ?>" placeholder="@TwitterHandle" /> Twitter Username</p>
+
+            <p><input type="text" name="instagram_username" id="instagram_username" size="32" value="<?php echo get_option('mytheme_instagram_username'); ?>" placeholder="@InstagramHandle" /> Twitter Username</p>
+
+            <p><input type="text" name="google_username" id="google_username" size="32" value="<?php echo get_option('mytheme_google_username'); ?>" placeholder="http://google.com/" /> Google+ URL</p>
+
+            <p><input type="text" name="googleanalytics" id="googleanalytics" size="32" value="<?php echo get_option('mytheme_googleanalytics'); ?>"/> Google Analytics Tracking ID</p>
+
+            <p><input type="submit" name="search" value="Update Options" class="button" /></p>
+        </form>
+
+    </div>
+    <?php
+}
+
+function themeoptions_update()
+{
+    // this is where validation would go
+    update_option('mytheme_color',     $_POST['color']);
+
+    update_option('mytheme_menu_type',     $_POST['menu']);
+
+    update_option('mytheme_googleanalytics',   $_POST['googleanalytics']);
+
+    update_option('mytheme_facebook_info',   $_POST['twitter_username']);
+
+    update_option('mytheme_twitter_username',   $_POST['facebook_info']);
+
+    update_option('mytheme_instagram_username',   $_POST['instagram_username']);
+
+    update_option('mytheme_google_username',   $_POST['google_username']);
+
+    update_option('mytheme_googleanalytics',   $_POST['googleanalytics']);
+}
+
+add_action('admin_menu', 'themeoptions_admin_menu');
+
 
 /*------------------------------------*\
 	Functions
@@ -161,20 +244,8 @@ function html5blank_styles()
     wp_register_style('coregov', get_template_directory_uri() . '/css/cagov.core.css', array(), '1.0', 'all');
     wp_enqueue_style('coregov');
 
-    wp_register_style('color-oceanside', get_template_directory_uri() . '/css/colorscheme-oceanside.css', array(), '1.0', 'all');
-    wp_enqueue_style('color-oceanside');
-
-    // wp_register_style('color-orangecounty', get_template_directory_uri() . '/css/colorscheme-orangecounty.css', array(), '1.0', 'all');
-    // wp_enqueue_style('color-orangecounty');
-
-    // wp_register_style('color-pasorobles', get_template_directory_uri() . '/css/colorscheme-pasorobles.css', array(), '1.0', 'all');
-    // wp_enqueue_style('color-pasorobles');
-
-    // wp_register_style('color-santabarbara', get_template_directory_uri() . '/css/colorscheme-santabarbara.css', array(), '1.0', 'all');
-    // wp_enqueue_style('color-santabarbara');
-
-    // wp_register_style('color-sierra', get_template_directory_uri() . '/css/colorscheme-sierra.css', array(), '1.0', 'all');
-    // wp_enqueue_style('color-sierra');
+    wp_register_style('color-color_scheme', get_template_directory_uri() . '/css/colorscheme-' . get_option('mytheme_color') . '.css', array(), '1.0', 'all');
+    wp_enqueue_style('color-color_scheme');
 
     wp_register_style('custom', get_template_directory_uri() . '/css/custom.css', array(), '1.0', 'all');
     wp_enqueue_style('custom');

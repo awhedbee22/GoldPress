@@ -8,3 +8,19 @@ img.header-banner{
 .global-header{
     overflow: hidden;
 }
+.gov-banner{
+    height: 89px;
+    background: url(../images/banner/2015-governorbanner.png) 100% 100% no-repeat;
+}
+.gov-officials{
+    height: 89px;
+    background: url(../images/banner/banner-blank.png) 100% 100% no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.gov-officials img{
+    height: 89px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

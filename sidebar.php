@@ -1,6 +1,5 @@
 <!-- sidebar -->
-<aside class="sidebar main-secondary" role="complementary">
-
+<aside class="sidebar main-secondary">
 
 	<?php get_template_part( 'partials/content', 'officials' ); ?>
 

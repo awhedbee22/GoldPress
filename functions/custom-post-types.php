@@ -29,48 +29,104 @@ function gov_ent_post_type()
         'can_export' => false
     ));
 }
-add_action( 'add_meta_boxes', 'add_officials_position' );
 
-function add_officials_position() {
-    add_meta_box('wpt_officials_position', 'Officials Position', 'wpt_officials_position', 'gov-officials', 'side', 'default');
+function position_get_meta( $value ) {
+	global $post;
+
+	$field = get_post_meta( $post->ID, $value, true );
+	if ( ! empty( $field ) ) {
+		return is_array( $field ) ? stripslashes_deep( $field ) : stripslashes( wp_kses_decode_entities( $field ) );
+	} else {
+		return false;
+	}
 }
 
-// The Officials Position Metabox
-function wpt_officials_position() {
-    global $post;
-    // Noncename needed to verify where the data originated
-    echo '<input type="hidden" name="officialsposition_noncename" id="officialsposition_noncename" value="' .
-    wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
-    // Get the position data if its already been entered
-    $position = get_post_meta($post->ID, '_position', true);
-    // Echo out the field
-    echo '<input type="text" name="_position" value="' . $position  . '" class="widefat" />';
+function position_add_meta_box() {
+	add_meta_box(
+		'position-position',
+		__( 'Position', 'position' ),
+		'position_html',
+		'gov-officials',
+		'side',
+		'default'
+	);
+}
+add_action( 'add_meta_boxes', 'position_add_meta_box' );
+
+function position_html( $post) {
+	wp_nonce_field( '_position_nonce', 'position_nonce' ); ?>
+
+	<p>
+		<label for="position_position"><?php _e( 'Position', 'position' ); ?></label><br>
+		<input type="text" name="position_position" id="position_position" value="<?php echo position_get_meta( 'position_position' ); ?>">
+	</p><?php
 }
 
-// Save the Metabox Data
-function wpt_save_officials_position($post_id, $post) {
-    // verify this came from the our screen and with proper authorization,
-    // because save_post can be triggered at other times
-    if ( !wp_verify_nonce( $_POST['officialsposition_noncename'], plugin_basename(__FILE__) )) {
-    return $post->ID;
-    }
-    // Is the user allowed to edit the post or page?
-    if ( !current_user_can( 'edit_post', $post->ID ))
-        return $post->ID;
-    // OK, we're authenticated: we need to find and save the data
-    // We'll put it into an array to make it easier to loop though.
-    $position_meta['_position'] = $_POST['_position'];
-    // Add values of $events_meta as custom fields
-    foreach ($position_meta as $key => $value) { // Cycle through the $events_meta array!
-        if( $post->post_type == 'revision' ) return; // Don't store custom data twice
-        $value = implode(',', (array)$value); // If $value is an array, make it a CSV (unlikely)
-        if(get_post_meta($post->ID, $key, FALSE)) { // If the custom field already has a value
-            update_post_meta($post->ID, $key, $value);
-        } else { // If the custom field doesn't have a value
-            add_post_meta($post->ID, $key, $value);
-        }
-        if(!$value) delete_post_meta($post->ID, $key); // Delete if blank
-    }
+function position_save( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	if ( ! isset( $_POST['position_nonce'] ) || ! wp_verify_nonce( $_POST['position_nonce'], '_position_nonce' ) ) return;
+	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+	if ( isset( $_POST['position_position'] ) )
+		update_post_meta( $post_id, 'position_position', esc_attr( $_POST['position_position'] ) );
 }
-add_action('save_post', 'wpt_save_officials_position', 1, 2); // save the custom fields
+add_action( 'save_post', 'position_save' );
+
+/*
+	Usage: position_get_meta( 'position_position' )
+*/
+
+
+/*-------------------------------------------------------------------------------------------*/
+/* homepage_slider Post Type */
+/*-------------------------------------------------------------------------------------------*/
+class homepage_slider {
+
+	function homepage_slider() {
+		add_action('init',array($this,'create_post_type'));
+	}
+
+	function create_post_type() {
+		$labels = array(
+		    'name' => 'Slide',
+		    'singular_name' => 'Slide',
+		    'add_new' => 'Add New',
+		    'all_items' => 'All Slides',
+		    'add_new_item' => 'Add New Slide',
+		    'edit_item' => 'Edit Slide',
+		    'new_item' => 'New Slide',
+		    'view_item' => 'View Slide',
+		    'search_items' => 'Search Slides',
+		    'not_found' =>  'No Slides found',
+		    'not_found_in_trash' => 'No Slides found in trash',
+		    'parent_item_colon' => 'Parent Slide:',
+		    'menu_name' => 'Homepage Slider'
+		);
+		$args = array(
+			'labels' => $labels,
+			'description' => "Homepage slider with image, title, and link. Slides recommended 1500x500",
+			'public' => true,
+			'exclude_from_search' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true,
+			'show_in_nav_menus' => true,
+			'show_in_menu' => true,
+			'show_in_admin_bar' => false,
+			'menu_position' => 20,
+            'menu_icon' => 'dashicons-slides',
+            'label'     => __( 'Portfolio', 'local' ),
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'supports' => array('title','thumbnail','excerpt'),
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'featured-slide'),
+			'query_var' => true,
+			'can_export' => true
+		);
+		register_post_type('homepage_slider',$args);
+	}
+}
+
+$homepage_slider = new homepage_slider();
+
 ?>

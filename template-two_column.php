@@ -1,6 +1,6 @@
 <?php /* Template Name: Two Column */ get_header(); ?>
 
-	<main role="main" class="main-primary">
+	<main class="main-primary">
 		<!-- section -->
 		<section>
 

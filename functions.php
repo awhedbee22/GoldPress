@@ -45,4 +45,15 @@ require_once(get_template_directory().'/functions/actions-filters.php');
 \*------------------------------------*/
 require_once(get_template_directory().'/functions/custom-post-types.php');
 
+/*------------------------------------*\
+	Customizer - Logo
+\*------------------------------------*/
+require_once(get_template_directory().'/functions/customizer.php');
+
+
+/*------------------------------------*\
+    Customize the WordPress login menu
+\*------------------------------------*/
+require_once(get_template_directory().'/functions/login.php');
+
 ?>

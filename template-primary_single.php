@@ -1,6 +1,6 @@
-<?php /* Template Name: Primary Single Column */ get_header(); ?>
+<?php /* Template Name: Primary Single Column */ get_header('primary'); ?>
 
-	<main role="main" class="main-primary">
+	<main class="main-primary">
 		<!-- section -->
 		<section>
 

@@ -71,6 +71,9 @@ function html5blank_styles()
     wp_register_style('color-color_scheme', get_template_directory_uri() . '/css/colorscheme-' . get_option('mytheme_color') . '.css', array(), '1.0', 'all');
     wp_enqueue_style('color-color_scheme');
 
+    wp_register_style('general', get_template_directory_uri() . '/css/general-styles.css', array(), '1.0', 'all');
+    wp_enqueue_style('general');
+
     wp_register_style('custom', get_template_directory_uri() . '/css/custom.css', array(), '1.0', 'all');
     wp_enqueue_style('custom');
 }

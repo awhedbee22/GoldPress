@@ -1,10 +1,10 @@
-<?php /* Template Name: Primary Two Column */ get_header('primary'); ?>
+<?php /* Template Name: Homepage */ get_header('primary'); ?>
 
 	<main class="main-primary">
 		<!-- section -->
 		<section>
 
-		<h1><span class="ca-gov-icon-arrow-down"></span> <?php the_title(); ?></h1>
+		<h1><span class="ca-gov-icon-arrow-down"></span> Welcome To <?php bloginfo('name'); ?></h1>
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -13,12 +13,9 @@
 
 				<?php the_content(); ?>
 
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
-
 				<br class="clear">
 
 				<?php edit_post_link(); ?>
-
 			</article>
 			<!-- /article -->
 

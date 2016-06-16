@@ -1,26 +1,38 @@
 /* Custom CSS - The CSS properties in this stylesheet will over-write any original template styles if the same class names are used in addition to custom styles which can also be added. */
-img.header-banner{
-    position: absolute;
-    top: 0;
+
+.wrapper p{
+    clear: both;
+}
+
+/*Sidebar Styles*/
+.important-info{
+    text-align: center;
+}
+.important-info a{
+    display: inline-block;
+    margin: 0 auto 5px;
+}
+.important-info img{
     width: 100%;
-    height: auto;
+    max-width: 180px;
+    display: inline-block;
+    margin: 0 auto;
 }
-.global-header{
-    overflow: hidden;
+.textwidget .location.contact .contact{
+    width: 100%;
+    text-align: center;
 }
-.gov-banner{
-    height: 89px;
-    background: url(../images/banner/2015-governorbanner.png) 100% 100% no-repeat;
+
+/*Social Icons*/
+.social-icon{
+   text-align:center;
 }
-.gov-officials{
-    height: 89px;
-    background: url(../images/banner/banner-blank.png) 100% 100% no-repeat;
-    position: relative;
-    overflow: hidden;
+.social-icon a{
+    display: inline-block;
+    margin: 0 10px;
 }
-.gov-officials img{
-    height: 89px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.social-icon img{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }

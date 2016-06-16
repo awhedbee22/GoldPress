@@ -67,6 +67,15 @@ function themeoptions_page()
 
             <hr>
 
+            <h4>Enable Homepage Header Slider</h4>
+            <select name ="homeSlider">
+                <?php $showHomepageSlider = get_option('mytheme_display_homepageSlider'); ?>
+                <option value="visable" <?php if ($showHomepageSlider=='display') { echo 'selected'; } ?> >Display</option>
+                <option value="hidden" <?php if ($showHomepageSlider=='hidden') { echo 'selected'; } ?>>Hide</option>
+            </select>
+
+            <hr>
+
             <h4>Social Media</h4>
             <p><input type="text" name="facebook_info" id="facebook_info" size="15" value="<?php echo get_option('mytheme_facebook_info'); ?>" /> Facebook ID<br><a href="http://findmyfbid.com/" title="Find My Facebook ID">How to find my Facebook ID?</a></p>
 
@@ -102,6 +111,8 @@ function themeoptions_update()
     update_option('mytheme_display_contact',     $_POST['contactIcon']);
 
     update_option('mytheme_display_govBanner',     $_POST['govBanner']);
+
+    update_option('mytheme_display_homepageSlider',     $_POST['homeSlider']);
 
     update_option('mytheme_googleanalytics',   $_POST['googleanalytics']);
 

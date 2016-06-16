@@ -1,12 +1,14 @@
 			</div> <!-- /#main-content -->
+			<p class="modify">Last modified: <?php the_modified_date(); ?></p>
+
 		</div> <!-- /.wrapper -->
 
 			<!-- footer -->
-			<footer id="footer" class="global-footer footer" role="contentinfo">
+			<footer id="footer" class="global-footer footer">
 
 				<!-- Footer Menu -->
 				<ul>
-					<?php html5blank_nav('footer-menu'); ?>
+					<?php html5blank_footernav('footer-menu'); ?>
 				</ul>
 
 				<!-- Copyright Statement -->
@@ -35,6 +37,6 @@
 		</script>
 
 		<!-- FOR DEV ONLY -->
-		<a href="http://localhost/wordpress/wp-admin" style="position: absolute; bottom:0; right:0">Admin</a>
+		<a href="http://10.96.70.15/wp-admin" class="admin"><i class="material-icons">&#xE897;</i></a>
 	</body>
 </html>

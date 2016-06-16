@@ -17,10 +17,10 @@
 
 <div class="profile-banner" itemscope="" itemtype="http://schema.org/Person">
     <div class="inner gov-officials">
-        <div class="banner-subtitle"><a href="<?php the_permalink(); ?>"><?php echo esc_html( get_post_meta( get_the_ID(), 'wpt_officials_position', true ) ); ?></a></div>
+        <div class="banner-subtitle"><a href="<?php the_permalink(); ?>"><?php echo position_get_meta('position_position'); ?></a></div>
         <div class="banner-title"><?php the_title(); ?></div>
         <div class="banner-link"><a href="<?php the_permalink(); ?>" itemprop="url">Visit Webpage</a></div>
-        <?php the_post_thumbnail( 'thumbnail' ); ?>
+        <?php the_post_thumbnail(); ?>
     </div>
 </div>
 

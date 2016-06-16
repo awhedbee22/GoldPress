@@ -1,0 +1,13 @@
+<nav id="navigation" class="main-navigation dropdown off-canvas auto-highlight nav">
+    <ul id="nav_list" class="top-level-nav">
+        <li class="home-link nav-item <?php echo get_option('mytheme_display_home'); ?>">
+            <a href="<?php echo home_url(); ?>" class="first-level-link"><span class="ca-gov-icon-home" aria-hidden="true"></span><span class="sr-only">Home</span></a>
+        </li>
+
+            <?php html5blank_nav(); ?>
+
+        <li class="home-link nav-item <?php echo get_option('mytheme_display_contact'); ?>">
+            <a href="<?php echo home_url(); ?>/contact-us" class="first-level-link"><span class="ca-gov-icon-contact-us" aria-hidden="true"></span><span class="sr-only">Contact Us</span></a>
+        </li>
+    </ul>
+</nav>

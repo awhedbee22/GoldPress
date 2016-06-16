@@ -20,7 +20,7 @@
         <link href="<?php echo get_template_directory_uri(); ?>/images/icons/touch.png" rel="apple-touch-icon-precomposed">
 
 		<!-- Use highest compatibility mode, enable Chrome Frame -->
-		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<!-- http://t.co/dKP3o1e -->
 		<meta name="HandheldFriendly" content="True"> <!-- for Blackberry, AvantGo -->
@@ -84,6 +84,15 @@
 				<?php get_template_part( 'partials/nav', 'dropdown' ); ?>
 
 		    </div>
+
+			<?php
+				if( !is_paged() && ( is_home() || is_front_page() ) ) :
+					get_template_part('partials/content', 'homepageslider');
+				else :
+					get_template_part('blank');
+				endif;
+			?>
+
 
 		    <div class="header-decoration"></div>
 		</header>

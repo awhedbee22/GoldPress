@@ -25,6 +25,31 @@ function html5blank_nav()
 	);
 }
 
+function html5blank_footernav()
+{
+	wp_nav_menu(
+	array(
+		'theme_location'  => 'footer-menu',
+		'menu'            => '',
+		'container'       => 'div',
+		'container_class' => 'menu-{menu slug}-container',
+		'container_id'    => '',
+		'menu_class'      => 'menu',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '%3$s',
+		'depth'           => 0,
+		'walker'          => ''
+        // Create walker class to add li.nav-item
+		)
+	);
+}
+
 // Register HTML5 Blank Navigation
 function register_html5_menu()
 {
@@ -53,5 +78,6 @@ function add_classes_on_li($classes, $item, $args) {
   $classes[] = 'test_class';
   return $classes;
 }
+
 
 ?>

@@ -1,6 +1,8 @@
 <?php /* Template Name: Single Column */ get_header(); ?>
 
-	<main role="main" class="main-primary">
+	<main class="main-primary">
+		<?php custom_breadcrumbs(); ?>
+
 		<!-- section -->
 		<section>
 

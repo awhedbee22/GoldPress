@@ -1,6 +1,8 @@
 <?php /* Template Name: Two Column */ get_header(); ?>
 
 	<main class="main-primary">
+		<?php custom_breadcrumbs(); ?>
+
 		<!-- section -->
 		<section>
 
@@ -36,6 +38,7 @@
 
 		</section>
 		<!-- /section -->
+		<p class="modify">Last modified: <?php the_modified_date(); ?></p>
 	</main>
 
 	<?php get_sidebar(); ?>

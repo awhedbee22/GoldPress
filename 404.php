@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-	<main role="main">
+	<main class="main-primary">
+		<?php custom_breadcrumbs(); ?>
 		<!-- section -->
 		<section>
 
@@ -13,12 +14,10 @@
 				</h2>
 
 			</article>
-			<!-- /article -->
-
 		</section>
 		<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
+	<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

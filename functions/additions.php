@@ -36,6 +36,12 @@ function page_class_structure( $classes ) {
     if ( is_page_template( 'template-two_column.php' ) ) {
         $classes[] = 'two-column';
     }
+    if ( is_search() ) {
+        $classes[] = 'two-column';
+    }
+    if ( is_404() ) {
+        $classes[] = 'two-column';
+    }
     if ( is_page_template( 'template-homepage.php' ) ) {
         $classes[] = 'two-column primary';
     }

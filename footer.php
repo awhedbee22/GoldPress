@@ -1,5 +1,4 @@
 			</div> <!-- /#main-content -->
-			<p class="modify">Last modified: <?php the_modified_date(); ?></p>
 
 		</div> <!-- /.wrapper -->
 

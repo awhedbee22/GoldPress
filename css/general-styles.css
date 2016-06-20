@@ -10,6 +10,10 @@ a img{
 a img:hover{
     opacity: .8
 }
+a img.logo:hover{
+    opacity: 1;
+}
+
 h2, h3, h4, h5, h6{
     margin-bottom: 0;
     padding: 0;
@@ -105,6 +109,18 @@ img.alignright {
 ul ul{
     list-style: none;
 }
+input.search-input{
+    width: 100px;
+    -webkit-transition: all .35s ease-in-out;
+    -moz-transition: all .35s ease-in-out;
+    -ms-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+}
+.search-container.search-freeze-width input.search-input{
+    width: 200px;
+}
+
 /*##############################
 ########  Dropdown Navigation
 ##############################*/
@@ -117,6 +133,7 @@ ul ul{
         border-top: solid 3px #fbad23;
         width: 100%;
         text-align: center;
+        width: 175px;
     }
     nav ul {
         padding: 0 20px;

@@ -36,6 +36,7 @@
 
 		</section>
 		<!-- /section -->
+		<p class="modify">Last modified: <?php the_modified_date(); ?></p>
 	</main>
 
 <?php get_footer(); ?>

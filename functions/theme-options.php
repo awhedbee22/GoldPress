@@ -39,7 +39,7 @@ function themeoptions_page()
             <h4>Menu Type</h4>
             <select name ="menu">
                 <?php $menuType = get_option('mytheme_menu_type'); ?>
-                <option value="mega" <?php if ($menuType=='mega') { echo 'selected'; } ?> >Mega Menu</option>
+                <!--<option value="mega" <?php //if ($menuType=='mega') { echo 'selected'; } ?> >Mega Menu</option>-->
                 <option value="dropdown" <?php if ($menuType=='dropdown') { echo 'selected'; } ?>>Drop-Down Menu</option>
                 <option value="single" <?php if ($menuType=='single') { echo 'selected'; } ?>>Single Menu</option>
             </select>

@@ -1,7 +1,13 @@
-.demo-layout-transparent {
-  background: url('/images/transparent.jpg') center / cover;
+.layout-transparent {
+  background: url('images/transparent.jpg') top / cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
-.demo-layout-transparent .mdl-layout__header,
-.demo-layout-transparent .mdl-layout__drawer-button {
+.layout-transparent .mdl-layout_header,
+.layout-transparent .mdl-layout_drawer-button {
   color: white;
+}
+
+div#About{
+    margin-top: 150px;
 }

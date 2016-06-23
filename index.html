@@ -7,22 +7,27 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-blue.min.css">
-        <link rel="stylesheet" href="animate.css">
-        <link rel="stylesheet" href="styles.css">
+        <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body>
+
+        <div id="alert">
+            <p><strong>Please Note:</strong> This page is under heavy construction and is a work in progress. We just wanted to have some content on this page to start with. Thank you and enjoy!</p>
+        </div>
 
         <div class="layout-transparent mdl-layout mdl-js-layout">
             <header class="mdl-layout__header mdl-layout__header--transparent">
                 <div class="mdl-layout__header-row">
                     <span class="mdl-layout-title">CA State Template - Wordpress</span>
-                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-layout-spacer"><img src="images/header-ca.gov.png" alt="CA.Gov" class="logo"/></div>
                     <nav class="mdl-navigation">
                         <a class="mdl-navigation__link" href="#About">About</a>
                         <a class="mdl-navigation__link" href="#Install">Install</a>
                         <a class="mdl-navigation__link" href="#Plugins">Plugins</a>
-                        <a class="mdl-navigation__link" href="#Download">Download</a>
+                        <a class="mdl-navigation__link" href="https://github.com/awhedbee22/CAStateTemplate" target="_blank">Download</a>
                     </nav>
                 </div>
             </header>
@@ -34,7 +39,7 @@
                     <a class="mdl-navigation__link" href="#About">About</a>
                     <a class="mdl-navigation__link" href="#Install">Install</a>
                     <a class="mdl-navigation__link" href="#Plugins">Plugins</a>
-                    <a class="mdl-navigation__link" href="#Download">Download</a>
+                    <a class="mdl-navigation__link" href="https://github.com/awhedbee22/CAStateTemplate" target="_blank">Download</a>
                 </nav>
             </div>
         </div>
@@ -43,36 +48,69 @@
             <div id="About" class="mdl-grid wow fadeInUp">
                 <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
 
-                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col mdl-card__supporting-text">
                     <h3>About</h3>
-                    <p>Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.</p>
+                    <img src="images/WordpressTheme_Homepage.jpg" alt="Theme Sample" class="right">
+                    <p>The CA State Template Wordpress Theme was created for CA state agencies/departments that are looking to migrate to or update a current Wordpress site. Wordpress is one of the leading CMS in the world. It is a free platform that offers limitless capabilities, security and options. This theme was created off of the CA State Template V4, which offers almost all of the features the <a href="http://webtools.ca.gov/state-template-v4/" target="_blank">State Template V4</a> offers and then some! Being a open-sourced project, we hope to have many updates that will bring even more features.
+                    </p>
+
+                    <a href="https://github.com/awhedbee22/CAStateTemplate" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Download</a>
+
                 </div>
             </div>
 
-            <div id="Install" class="mdl-grid wow fadeInUp">
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="parallax quote-divider">
+                <h4></h4>
+            </div>
 
-                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-                    <h3>Install</h3>
-                    <p>Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.</p>
+
+            <h2 id="Install" class="center">Install In 4 Easy Steps</h2>
+            <div class="mdl-grid wow fadeInUp center install">
+                <div class="mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--3-col mdl-card__supporting-text">
+                    <i class="mdi mdi-wordpress"></i>
+                    <h3>Wordpress</h3>
+                    <p>Download & install wordpress on your prefered server.</p>
+                    <a href="https://wordpress.org/download/" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Download</a>
+                </div>
+
+                <div class="mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--3-col mdl-card__supporting-text">
+                    <i class="mdi mdi-download"></i>
+                    <h3>Download</h3>
+                    <p>You can download the most updated version of the Wordpress theme from GitHub. </p>
+                    <a href="https://github.com/awhedbee22/CAStateTemplate" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">GitHub</a>
+                </div>
+
+                <div class="mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--3-col mdl-card__supporting-text">
+                    <i class="mdi mdi-folder-upload"></i>
+                    <h3>Upload</h3>
+                    <p>You will need to upload the download theme into Wordpress.</p>
+                    <p class="instructions">Appearance -> Themes</p>
+                </div>
+                <div class="mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--3-col mdl-card__supporting-text">
+                    <i class="mdi mdi-wrench"></i>
+                    <h3>Configure</h3>
+                    <p>The theme has a few simple configuration options to customize to your liking.</p>
+                    <p class="instructions">Appearance -> Theme Options</p>
                 </div>
             </div>
 
             <div id="Plugins" class="mdl-grid wow fadeInUp">
                 <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
 
-                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col mdl-card__supporting-text">
                     <h3>Plugins</h3>
-                    <p>Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.</p>
-                </div>
-            </div>
+                    <p>Wordpress offers a plethora of plugins to help you get up and going without much programming knowledge. Here is a list of a few we find helpful.</p>
+                    <ul>
+                        <li><a href="https://wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7</a> - Simple but flexible contact form.</li>
+                        <li><a href=https://wordpress.org/plugins/display-posts-shortcode/"" target="_blank">Display Posts Shortcode</a> - Shortcode generator to display specific posts on page.</li>
+                        <li><a href=https://wordpress.org/plugins/html-editor-syntax-highlighter/"" target="_blank">HTML Editor Syntax Highlighter</a> - Adds syntax highlighting in the WordPress post HTML/text editor.</li>
+                        <li><a href="https://wordpress.org/plugins/members/" target="_blank">Members</a> - A user and role management plugin that puts you in full control of your site's permissions. This plugin allows you to edit your roles and their capabilities, clone existing roles, assign multiple roles per user, block post content, or even make your site completely private.</li>
+                        <li><a href="https://wordpress.org/plugins/tab-override/" target="_blank">Tab Override</a> - Causes tabs to function as they would in a text editor rather than a browser.</li>
+                        <li><a href="https://wordpress.org/plugins/woosidebars/" target="_blank">WooSidebars</a> - Replace widget areas in your theme for specific pages, archives and other sections of WordPress.</li>
+                        <li><a href="https://wordpress.org/plugins/wp-mail-bank/" target="_blank">Wp Mail Bank</a> - WP Mail Bank reconfigures the wp_mail() function and make it more enhanced.</li>
+                        <li><a href="https://wordpress.org/plugins/wp-smushit/" target="_blank">WP Smush</a> - Reduce image file sizes, improve performance and boost your SEO using the free WPMU DEV WordPress Smush API.</li>
 
-            <div id="Download" class="mdl-grid wow fadeInUp">
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-
-                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-                    <h3>Download</h3>
-                    <p>Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua elit.</p>
+                    </ul>
                 </div>
             </div>
 
@@ -90,7 +128,7 @@
     </body>
 
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-    <script src="wow.js"></script>
+    <script src="js/wow.js"></script>
     <script>
         new WOW().init();
     </script>

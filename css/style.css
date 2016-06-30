@@ -2,11 +2,46 @@
 
 .logo{
     width: 120px;
-    margin: 5px 15px;;
+    -webkit-transition: all .35s ease-in-out;
+    -moz-transition: all .35s ease-in-out;
+    -ms-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+    /*margin: 5px 15px;*/
 }
-
+a#logo-container {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transition: all .35s ease-in-out;
+    -moz-transition: all .35s ease-in-out;
+    -ms-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+}
+a#logo-container.scroll {
+    position: absolute;
+    left: 10px;
+    transform: translateX(10px);
+}
+h1.header.center.amber-text.text-lighten-2 {
+    padding-top: 20px;
+    margin-bottom: 0;
+}
+a.download{
+    background: #e9aa47;
+    font-weight: 500;
+    color: white;
+}
+a.download:hover{
+    background: #ff6f00
+}
 nav ul a, nav .brand-logo {
     color: #444;
+}
+nav .button-collapse{
+    margin-left: 20px;
 }
 p {
     line-height: 2rem;
@@ -29,6 +64,9 @@ p {
 .parallax-container .section {
     width: 100%;
 }
+h4.header{
+    text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
+}
 @media only screen and (max-width: 992px) {
     .parallax-container .section {
         position: absolute;
@@ -36,6 +74,13 @@ p {
     }
     #index-banner .section {
         top: 10%;
+    }
+    a#logo-container.scroll {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .logo.scroll{
+        width: 75px;
     }
 }
 @media only screen and (max-width: 600px) {

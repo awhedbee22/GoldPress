@@ -23,3 +23,24 @@ $(function() {
     }
   });
 });
+
+
+// Add Class onScroll
+$(function(){
+ var addRemoveClass = 1;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+      if ( scroll >= addRemoveClass ) {
+           $('#logo-container').addClass('scroll');
+           $('.logo').addClass('scroll');
+        }
+        else {
+            $('#logo-container').removeClass('scroll');
+            $('.logo').removeClass('scroll');
+        }
+  });
+
+function getCurrentScroll() {
+    return window.pageYOffset;
+    }
+});
